@@ -1,12 +1,19 @@
-// const http = require('http');
+require('dotenv').config();
+// process.env.PORT
+// process.env.API_KEY
 
 const PORT = 3000;
 const express = require('express');
 const bodyParser = require('body-parser');
 
 const app = express();
+
+// 1. CONFIG
+
+// 2. MIDDLEWARE
 app.use(bodyParser.json());
 
+// 3. ENDPOINTS
 // GET /
 app.get('/', (req, res) => {
   res.send('Hello word!'); // default: 200, text/html
