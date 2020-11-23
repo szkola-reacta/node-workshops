@@ -2,16 +2,12 @@ require('dotenv').config();
 // process.env.PORT
 // process.env.API_KEY
 
-const PORT = 3000;
 const express = require('express');
-const bodyParser = require('body-parser');
+const constants = require('./config/constants');
+const middlewareConfig = require('./middleware');
 
 const app = express();
-
-// 1. CONFIG
-
-// 2. MIDDLEWARE
-app.use(bodyParser.json());
+middlewareConfig(app);
 
 // 3. ENDPOINTS
 // GET /
@@ -29,6 +25,7 @@ app.get('/ping', (req, res) => {
   res.status(201).json({ status: 'ok'});
 });
 
+const PORT = constants.PORT;
 app.listen(PORT, (err) => {
   if (err) {
     console.log('Error!');
