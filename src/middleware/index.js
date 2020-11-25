@@ -14,13 +14,13 @@ module.exports = (app) => {
 
   app.use(bodyParser.json());
 
-  if (isDev) {
+  // if (isDev) {
     const corsOptions = {
       origin: '*'
     }
     app.use(cors(corsOptions));
     // app.use(morgan('dev'))
-  }
+  // }
   // if (isProd) {
   //   app.use(morgan('tiny'))
   // }
